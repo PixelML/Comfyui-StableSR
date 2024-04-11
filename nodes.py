@@ -13,15 +13,15 @@ from .modules.struct_cond import EncoderUNetModelWT, build_unetwt
 from .modules.util import pil2tensor, tensor2pil
 
 model_path = folder_paths.models_dir
-folder_name = "stablesr"
+folder_name = "checkpoints"
 folder_path = os.path.join(
-    model_path, "stablesr"
+    model_path, "checkpoints"
 )  # set a default path for the common comfyui model path
 if folder_name in folder_paths.folder_names_and_paths:
     folder_path = folder_paths.folder_names_and_paths[folder_name][0][
         0
     ]  # if a custom path was set in extra_model_paths.yaml then use it
-folder_paths.folder_names_and_paths["stablesr"] = (
+folder_paths.folder_names_and_paths["checkpoints"] = (
     [folder_path],
     folder_paths.supported_pt_extensions,
 )
@@ -183,7 +183,7 @@ class ApplyStableSRUpscaler:
     CATEGORY = "image/upscaling"
 
     def apply_stable_sr_upscaler(self, model, stablesr_model, latent_image=None):
-        stablesr_model_path = folder_paths.get_full_path("stablesr", stablesr_model)
+        stablesr_model_path = folder_paths.get_full_path("checkpoints", stablesr_model)
         if not os.path.isfile(stablesr_model_path):
             raise Exception(f"[StableSR] Invalid StableSR model reference")
 
