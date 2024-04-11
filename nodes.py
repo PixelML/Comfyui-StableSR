@@ -170,7 +170,7 @@ class ApplyStableSRUpscaler:
         return {
             "required": {
                 "model": ("MODEL",),
-                "stablesr_model": (folder_paths.get_filename_list("stablesr"),),
+                "stablesr_model": (folder_paths.get_filename_list("checkpoints"),),
             },
             "optional": {
                 "latent_image": ("LATENT",),
